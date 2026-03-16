@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content="Tiger Tap Quest — official developer page: app overview, privacy-first statement, support, and marketing information." />
+  <title>Tiger Tap Quest — Developer & App Info</title>
+
+  <style>
+    :root{
+      --bg0:#070A12;
+      --bg1:#0b1020;
+      --card: rgba(255,255,255,.08);
+      --card2: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.14);
+      --text:#F4F6FF;
+      --muted: rgba(244,246,255,.72);
+      --muted2: rgba(244,246,255,.58);
+      --brand1:#F59E0B; /* amber */
+      --brand2:#06B6D4; /* cyan */
+      --brand3:#22C55E; /* green */
+      --shadow: 0 18px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1060px;
+    }
+
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg0:#F7F8FF;
+        --bg1:#EEF1FF;
+        --card: rgba(12,18,40,.06);
+        --card2: rgba(12,18,40,.045);
+        --stroke: rgba(12,18,40,.14);
+        --text:#0B1020;
+        --muted: rgba(11,16,32,.78);
+        --muted2: rgba(11,16,32,.62);
+        --shadow: 0 18px 40px rgba(10,18,40,.12);
+      }
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 18% 20%, rgba(245,158,11,.30), transparent 62%),
+        radial-gradient(900px 520px at 82% 26%, rgba(6,182,212,.24), transparent 56%),
+        radial-gradient(900px 520px at 62% 88%, rgba(34,197,94,.18), transparent 56%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+
+    .grain{
+      position:fixed; inset:0; pointer-events:none;
+      opacity:.08;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ width:min(var(--max), calc(100% - 32px)); margin:0 auto; }
+
+    header{
+      position:sticky; top:0; z-index:30;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(180deg, rgba(10,14,26,.72), rgba(10,14,26,.30));
+      border-bottom: 1px solid var(--stroke);
+    }
+    @media (prefers-color-scheme: light){
+      header{ background: linear-gradient(180deg, rgba(255,255,255,.76), rgba(255,255,255,.44)); }
+    }
+
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding:14px 0; flex-wrap:wrap;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 230px;
+    }
+    .logo{
+      width:42px; height:42px; border-radius:14px;
+      background: conic-gradient(from 210deg, var(--brand1), var(--brand2), var(--brand3), var(--brand1));
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      position:relative; overflow:hidden;
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.65), transparent 60%);
+      transform: rotate(20deg);
+    }
+    .brand h1{
+      font-size:14px; line-height:1.1; margin:0;
+      letter-spacing:.4px;
+    }
+    .brand .sub{
+      display:block;
+      font-size:12px; color:var(--muted);
+      margin-top:4px;
+    }
+
+    .links{
+      display:flex; gap:8px; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--stroke);
+      box-shadow: 0 10px 24px rgba(0,0,0,.18);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      font-size:13px;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .pill:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.22); }
+    .pill:active{ transform: translateY(0px); }
+
+    main{ padding: 26px 0 60px; }
+    .hero{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:16px;
+      align-items:stretch;
+      margin-top: 12px;
+    }
+    @media (max-width: 920px){
+      .hero{ grid-template-columns: 1fr; }
+      .brand{ min-width: unset; }
+    }
+
+    .card{
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .card .glow{
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(700px 220px at 12% 20%, rgba(245,158,11,.22), transparent 60%),
+        radial-gradient(700px 220px at 78% 24%, rgba(6,182,212,.18), transparent 60%),
+        radial-gradient(700px 220px at 60% 90%, rgba(34,197,94,.14), transparent 62%);
+      pointer-events:none;
+    }
+
+    .card .inner{ padding: 18px; }
+    .title{
+      font-size: 34px;
+      line-height: 1.08;
+      margin: 0;
+      letter-spacing: .2px;
+    }
+    .lead{
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+      max-width: 70ch;
+    }
+
+    .badges{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 16px;
+    }
+    .badge{
+      display:inline-flex; gap:10px; align-items:center;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.05);
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .dot{
+      width:10px; height:10px; border-radius: 999px;
+      background: linear-gradient(90deg, var(--brand1), var(--brand2));
+      box-shadow: 0 0 0 4px rgba(245,158,11,.14);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .col-7{ grid-column: span 7; }
+    .col-5{ grid-column: span 5; }
+    .col-6{ grid-column: span 6; }
+    .col-12{ grid-column: span 12; }
+    @media (max-width: 920px){
+      .col-7,.col-5,.col-6{ grid-column: span 12; }
+    }
+
+    .sectionTitle{
+      margin:0 0 10px;
+      font-size: 14px;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      color: var(--muted2);
+    }
+
+    .kvs{
+      display:grid;
+      gap:10px;
+    }
+    .kv{
+      display:flex; justify-content:space-between; gap:12px;
+      padding: 12px 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.04);
+    }
+    .kv strong{ font-size: 13px; }
+    .kv span{
+      font-size: 13px;
+      color: var(--muted);
+      text-align:right;
+      word-break: break-word;
+    }
+
+    .ctaRow{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 14px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--stroke);
+      background: linear-gradient(135deg, rgba(245,158,11,.22), rgba(6,182,212,.14));
+      box-shadow: 0 12px 28px rgba(0,0,0,.18);
+      font-weight: 650;
+      font-size: 13px;
+      letter-spacing: .2px;
+      transition: transform .12s ease, filter .12s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); filter: brightness(1.05); }
+    .btn.secondary{
+      background: rgba(255,255,255,.05);
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    footer{
+      padding: 24px 0 38px;
+      color: var(--muted2);
+      font-size: 12px;
+      border-top: 1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), transparent);
+    }
+    .footGrid{
+      display:flex; justify-content:space-between; gap:12px;
+      flex-wrap:wrap;
+    }
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="index.html" aria-label="Home">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <h1>Tiger Tap Quest <span class="sub">Developer & App Information</span></h1>
+          </div>
+        </a>
+
+        <nav class="links" aria-label="Primary navigation">
+          <a class="pill" href="privacy.html">Privacy Policy</a>
+          <a class="pill" href="support.html">Support</a>
+          <a class="pill" href="marketing.html">Marketing</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="card">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="inner">
+          <h2 class="title">Clear, honest, privacy-first.</h2>
+          <p class="lead">
+            This website provides transparent information for users and Google Play reviewers:
+            who publishes Tiger Tap Quest, how support works, and what the privacy policy states.
+          </p>
+
+          <div class="badges" role="list" aria-label="Key statements">
+            <div class="badge" role="listitem"><span class="dot" aria-hidden="true"></span><span>No personal data collected</span></div>
+            <div class="badge" role="listitem"><span class="dot" aria-hidden="true"></span><span>No data stored or shared</span></div>
+            <div class="badge" role="listitem"><span class="dot" aria-hidden="true"></span><span>Support via email</span></div>
+            <div class="badge" role="listitem"><span class="dot" aria-hidden="true"></span><span>Transparent monetization plan</span></div>
+          </div>
+
+          <div class="ctaRow">
+            <a class="btn" href="privacy.html">Read Privacy Policy</a>
+            <a class="btn secondary" href="support.html">Get Support</a>
+            <a class="btn secondary" href="marketing.html">About & Roadmap</a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="inner">
+          <p class="sectionTitle">Quick facts</p>
+          <div class="kvs">
+            <div class="kv"><strong>App name</strong><span>Tiger Tap Quest</span></div>
+            <div class="kv"><strong>Developer</strong><span>Konstanta TOV</span></div>
+            <div class="kv">
+              <strong>Contact</strong>
+              <span class="mono"><a href="mailto:sergeypoznyko@gmail.com">sergeypoznyko@gmail.com</a></span>
+            </div>
+            <div class="kv"><strong>Data collection</strong><span>None</span></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="grid" aria-label="More details">
+      <div class="card col-7">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="inner">
+          <p class="sectionTitle">What is Tiger Tap Quest?</p>
+          <p class="lead" style="margin-top:0">
+            Tiger Tap Quest is an Android app published by Konstanta TOV.
+            This GitHub Pages site is used as the official hub for Google Play Console URLs:
+            Privacy Policy, Support, and Marketing.
+          </p>
+
+          <div class="grid" style="margin-top:12px">
+            <div class="col-6">
+              <p class="sectionTitle">Transparency</p>
+              <div class="kvs">
+                <div class="kv"><strong>Ads</strong><span>No</span></div>
+                <div class="kv"><strong>Analytics</strong><span>No</span></div>
+                <div class="kv"><strong>Third-party tracking</strong><span>No</span></div>
+              </div>
+            </div>
+            <div class="col-6">
+              <p class="sectionTitle">Future plans</p>
+              <div class="kvs">
+                <div class="kv"><strong>Paid features</strong><span>Planned (optional)</span></div>
+                <div class="kv"><strong>Subscriptions</strong><span>Possible later</span></div>
+                <div class="kv"><strong>Goal</strong><span>Deliver value through updates</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card col-5">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="inner">
+          <p class="sectionTitle">For reviewers</p>
+          <p class="lead" style="margin-top:0">
+            All Play Console links are provided here. The privacy policy is explicit:
+            the app does not collect, store, or share any user data. Support is handled via email.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn secondary" href="privacy.html">Policy</a>
+            <a class="btn secondary" href="support.html">Support</a>
+            <a class="btn secondary" href="marketing.html">Marketing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footGrid">
+        <div>
+          <div><strong>Tiger Tap Quest</strong> — official site for Google Play Console URLs.</div>
+          <div>Last updated: <span id="lastUpdated"></span></div>
+        </div>
+        <div class="mono">
+          Contact: <a href="mailto:sergeypoznyko@gmail.com">sergeypoznyko@gmail.com</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const d = new Date();
+      document.getElementById('lastUpdated').textContent =
+        d.toLocaleDateString(undefined, { year:'numeric', month:'long', day:'numeric' });
+    </script>
+  </footer>
+</body>
+</html>
