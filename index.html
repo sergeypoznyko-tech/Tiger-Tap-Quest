@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0b1020" />
-  <meta name="description" content="Tiger Coin Quest — official developer page: app overview, privacy-first statement, support, and marketing information." />
+  <meta name="description" content="Tiger Coin Quest — official developer page: app overview, privacy information, support, and marketing information." />
   <title>Tiger Coin Quest — Developer & App Info</title>
 
   <style>
@@ -17,9 +17,9 @@
       --text:#F4F6FF;
       --muted: rgba(244,246,255,.72);
       --muted2: rgba(244,246,255,.58);
-      --brand1:#F59E0B; /* amber */
-      --brand2:#06B6D4; /* cyan */
-      --brand3:#22C55E; /* green */
+      --brand1:#F59E0B;
+      --brand2:#06B6D4;
+      --brand3:#22C55E;
       --shadow: 0 18px 40px rgba(0,0,0,.35);
       --radius: 18px;
       --radius2: 26px;
@@ -153,7 +153,7 @@
       pointer-events:none;
     }
 
-    .card .inner{ padding: 18px; }
+    .card .inner{ padding: 18px; position:relative; z-index:1; }
     .title{
       font-size: 34px;
       line-height: 1.08;
@@ -296,17 +296,17 @@
       <div class="card">
         <div class="glow" aria-hidden="true"></div>
         <div class="inner">
-          <h2 class="title">Clear, honest, privacy-first.</h2>
+          <h2 class="title">Clear, honest, and transparent.</h2>
           <p class="lead">
             This website provides transparent information for users and Google Play reviewers:
-            who publishes Tiger Coin Quest, how support works, and what the privacy policy states.
+            who publishes Tiger Coin Quest, how support works, and how privacy-related information is handled.
           </p>
 
           <div class="badges" role="list" aria-label="Key statements">
-            <div class="badge" role="listitem"><span class="dot" aria-hidden="true"></span><span>No personal data collected</span></div>
-            <div class="badge" role="listitem"><span class="dot" aria-hidden="true"></span><span>No data stored or shared</span></div>
+            <div class="badge" role="listitem"><span class="dot" aria-hidden="true"></span><span>Firebase Analytics may be used</span></div>
+            <div class="badge" role="listitem"><span class="dot" aria-hidden="true"></span><span>AppsFlyer may be used</span></div>
+            <div class="badge" role="listitem"><span class="dot" aria-hidden="true"></span><span>Usage data and device identifiers may be processed</span></div>
             <div class="badge" role="listitem"><span class="dot" aria-hidden="true"></span><span>Support via email</span></div>
-            <div class="badge" role="listitem"><span class="dot" aria-hidden="true"></span><span>Transparent monetization plan</span></div>
           </div>
 
           <div class="ctaRow">
@@ -328,7 +328,7 @@
               <strong>Contact</strong>
               <span class="mono"><a href="mailto:sergeypoznyko@gmail.com">sergeypoznyko@gmail.com</a></span>
             </div>
-            <div class="kv"><strong>Data collection</strong><span>None</span></div>
+            <div class="kv"><strong>Data Safety</strong><span>Usage data and device identifiers may be collected</span></div>
           </div>
         </div>
       </aside>
@@ -349,15 +349,15 @@
             <div class="col-6">
               <p class="sectionTitle">Transparency</p>
               <div class="kvs">
-                <div class="kv"><strong>Ads</strong><span>No</span></div>
-                <div class="kv"><strong>Analytics</strong><span>No</span></div>
-                <div class="kv"><strong>Third-party tracking</strong><span>No</span></div>
+                <div class="kv"><strong>Analytics</strong><span>Firebase Analytics</span></div>
+                <div class="kv"><strong>Attribution</strong><span>AppsFlyer</span></div>
+                <div class="kv"><strong>Security</strong><span>HTTPS/TLS in transit</span></div>
               </div>
             </div>
             <div class="col-6">
               <p class="sectionTitle">Future plans</p>
               <div class="kvs">
-                <div class="kv"><strong>Paid features</strong><span>Planned (optional)</span></div>
+                <div class="kv"><strong>Paid features</strong><span>Planned optional features</span></div>
                 <div class="kv"><strong>Subscriptions</strong><span>Possible later</span></div>
                 <div class="kv"><strong>Goal</strong><span>Deliver value through updates</span></div>
               </div>
@@ -371,8 +371,14 @@
         <div class="inner">
           <p class="sectionTitle">For reviewers</p>
           <p class="lead" style="margin-top:0">
-            All Play Console links are provided here. The privacy policy is explicit:
-            the app does not collect, store, or share any user data. Support is handled via email.
+            All Play Console links are provided here. The privacy policy explains that the app may use Firebase Analytics
+            and AppsFlyer to process limited usage data, app activity, device identifiers, advertising identifiers,
+            approximate location, and technical data.
+          </p>
+          <p class="lead">
+            Data is transmitted using secure protocols such as HTTPS/TLS. The app does not currently provide a direct
+            in-app mechanism or separate request process for users to request deletion of analytics, attribution,
+            or device identifier data.
           </p>
 
           <div class="ctaRow">
@@ -396,12 +402,6 @@
         </div>
       </div>
     </div>
-
-    <script>
-      const d = new Date();
-      document.getElementById('lastUpdated').textContent =
-        d.toLocaleDateString(undefined, { year:'numeric', month:'long', day:'numeric' });
-    </script>
   </footer>
 </body>
 </html>
