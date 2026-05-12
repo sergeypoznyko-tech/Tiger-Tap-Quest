@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0b1020" />
-  <meta name="description" content="Privacy Policy for Tiger Coin Quest. No data collected, stored, or shared." />
+  <meta name="description" content="Privacy Policy for Tiger Coin Quest." />
   <title>Tiger Coin Quest — Privacy Policy</title>
 
   <style>
@@ -89,7 +89,7 @@
         radial-gradient(700px 220px at 78% 24%, rgba(6,182,212,.16), transparent 60%),
         radial-gradient(700px 220px at 60% 90%, rgba(34,197,94,.14), transparent 62%);
     }
-    .inner{ padding: 18px; }
+    .inner{ padding: 18px; position:relative; z-index:1; }
     h1{ margin:0; font-size: 28px; letter-spacing: .2px; }
     .meta{
       margin-top: 10px; color: var(--muted);
@@ -156,46 +156,93 @@
 
         <div class="callout">
           <p style="margin:0">
-            <strong>Summary:</strong> Tiger Coin Quest does not collect any user data. We do not store data and we do not share data with anyone.
+            <strong>Summary:</strong> Tiger Coin Quest may use Firebase Analytics and AppsFlyer. These services may collect
+            and process limited usage data, app activity, device identifiers, advertising identifiers, approximate location,
+            and related technical information for analytics, attribution, app improvement, marketing measurement,
+            fraud prevention, security, and compliance.
           </p>
         </div>
 
         <h2>1. Information we collect</h2>
         <p>
-          We do not collect personal information, sensitive information, or device identifiers.
-          The app is designed to function without any data collection.
+          Tiger Coin Quest may collect limited non-personal and technical data through third-party analytics and attribution
+          services, including Firebase Analytics and AppsFlyer.
         </p>
         <ul>
-          <li>No account creation.</li>
-          <li>No analytics.</li>
-          <li>No advertising ID collection.</li>
-          <li>No background tracking.</li>
+          <li><strong>App activity and usage data:</strong> app launches, screen views, sessions, session duration, interactions with app features, and in-app events.</li>
+          <li><strong>Device or other identifiers:</strong> advertising identifiers, app instance identifiers, device identifiers, or similar technical identifiers.</li>
+          <li><strong>Approximate location:</strong> approximate location may be derived from technical information such as IP address for analytics, attribution, fraud prevention, regional reporting, and marketing measurement.</li>
+          <li><strong>Technical data:</strong> device type, operating system version, app version, language, country or region, and diagnostic information.</li>
         </ul>
 
-        <h2>2. Information storage</h2>
+        <h2>2. Information we do not intentionally collect</h2>
         <p>
-          We do not store your personal information on servers because we do not collect it.
-          If the app uses local device storage for basic functionality (for example, saving preferences),
-          it remains on your device and is not transmitted to us.
+          We do not intentionally collect directly identifying personal information such as your name, email address,
+          phone number, payment information, or contact information through the app.
         </p>
 
-        <h2>3. Information sharing</h2>
+        <h2>3. How we use information</h2>
         <p>
-          We do not sell, rent, or share user data with third parties because we do not collect user data.
+          Collected data may be used for analytics, measuring app usage, understanding how users interact with the app,
+          improving performance and stability, attribution and measurement of advertising or marketing campaigns,
+          fraud prevention, security, and compliance.
         </p>
 
-        <h2>4. Third-party services</h2>
+        <h2>4. Information storage</h2>
         <p>
-          Tiger Coin Quest does not integrate third-party SDKs that collect user data (such as analytics or ads).
-          If this changes in the future, we will update this policy clearly and before enabling any data collection.
+          We do not store user data on our own developer-controlled servers. However, data collected through Firebase Analytics
+          and AppsFlyer may be stored and processed by those third-party service providers according to their own policies,
+          retention rules, and applicable legal requirements.
+        </p>
+        <p>
+          If the app uses local device storage for basic functionality, such information is intended to remain on your device
+          unless the app interface or operating system clearly states otherwise.
         </p>
 
-        <h2>5. Policy updates</h2>
+        <h2>5. Information sharing and third-party services</h2>
         <p>
-          If we ever change the app in a way that impacts privacy, we will update this page and keep the policy easy to understand.
+          Tiger Coin Quest may use third-party services including Firebase Analytics by Google and AppsFlyer. These services
+          may collect, receive, process, and store usage data, app activity data, device identifiers, approximate location,
+          and technical data according to their own privacy policies and terms.
+        </p>
+        <p>
+          Usage data, app activity data, device identifiers, approximate location, and technical data may be shared with
+          or processed by third-party analytics, attribution, advertising, marketing measurement, and fraud prevention providers.
+        </p>
+        <p>
+          We do not sell personal information. However, certain data may be processed by third-party service providers
+          as described in this Privacy Policy.
         </p>
 
-        <h2>6. Contact</h2>
+        <h2>6. Data security</h2>
+        <p>
+          Data transmitted from the app to third-party services is encrypted in transit using secure protocols such as HTTPS/TLS.
+          Although reasonable security measures are used, no method of transmission or electronic storage is completely secure.
+        </p>
+
+        <h2>7. User data deletion</h2>
+        <p>
+          At this time, Tiger Coin Quest does not provide a direct in-app mechanism or separate request process for users
+          to request deletion of analytics, attribution, or device identifier data.
+        </p>
+        <p>
+          Accordingly, in the Google Play Data Safety section, the answer to whether users can request data deletion is:
+          <strong>No</strong>.
+        </p>
+
+        <h2>8. Children’s privacy</h2>
+        <p>
+          Tiger Coin Quest is not intended to knowingly collect directly identifying personal information from children.
+          The app may collect limited usage data, app activity data, device identifiers, approximate location, and technical
+          data through third-party analytics and attribution services as described above.
+        </p>
+
+        <h2>9. Policy updates</h2>
+        <p>
+          If we change the app in a way that impacts privacy, we will update this page and keep the policy easy to understand.
+        </p>
+
+        <h2>10. Contact</h2>
         <p>
           For privacy questions, contact: <a class="mono" href="mailto:sergeypoznyko@gmail.com">sergeypoznyko@gmail.com</a>
         </p>
@@ -208,10 +255,7 @@
       <div>© <span id="year"></span> Tiger Coin Quest. This privacy policy is provided to be clear for users and reviewers.</div>
     </div>
     <script>
-      const now = new Date();
-      document.getElementById("year").textContent = now.getFullYear();
-      document.getElementById("effectiveDate").textContent =
-        now.toLocaleDateString(undefined, { year:'numeric', month:'long', day:'numeric' });
+      document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </footer>
 </body>
